@@ -9,7 +9,39 @@
    <link rel="stylesheet" href="style.css">
   </head>
   <body >
-    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll("main, section img, main img");
+  const options = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+      }
+    });
+  }, options);
+
+  elements.forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll("nav a");
+  const currentURL = window.location.href;
+
+  navLinks.forEach(link => {
+    if (link.href === currentURL) {
+      link.style.fontWeight = "bold";
+      link.style.color = "#ffcc00"; // Yellow highlight
+    }
+  });
+});
+</script>
     <header style="background-color: #99999e; padding: 1em; color: rgb(255, 255, 255); text-align: center;">
       <img src="images/logo.png" alt="EduHope Logo" style="height: 60px;"><br />
     <h1>EduHope Foundation</h1>
@@ -26,12 +58,12 @@
     </ul>
   </nav>
   <main style="padding: 2em;">
-    <h2 style="text-align: center;">About Us</h2>
+  <h2 style="text-align: center;">About EduHope Foundation – Our Story and Purpose</h2>
     <img src="images/about.jpg" alt="About EduHope" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
     <p>Founded in 2018, EduHope Foundation is dedicated to improving educational outcomes for children in under-resourced communities. We believe education is the cornerstone of a better future.</p>
-    <h3>Our Vision</h3>
+ <h3>Our Vision for Equal Education in South Africa</h3>
     <p>To see every child in South Africa have equal access to quality education and opportunities.</p>
-    <h3>Our Mission</h3>
+ <h3>Our Mission to Empower Youth Through Learning</h3>
     <p>We aim to empower children through tutoring, mentorship, and resource provision, supported by dedicated volunteers and donors.</p>
   </main>
 </div>

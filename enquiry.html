@@ -1,43 +1,89 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <div class="main">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduHope Foundation</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body style="font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0;">
-  <header style="background-color: #9ba1a6; padding: 1em; color: rgb(246, 240, 240); text-align: center;">
-    <img src="images/logo.png" alt="EduHope Logo" style="height: 60px;"><br />
+  <header style="background-color: #9ba1a6; padding: 1em; color: white; text-align: center;">
+          <img src="images/logo.png" alt="EduHope Logo" style="height: 60px;"><br />
     <h1>EduHope Foundation</h1>
     <p>Empowering Tomorrow, One Child at a Time</p>
+    
+  <link rel="stylesheet" href="style.css">
+   <script>
+            function ChangeContentNow(){
+                document.getElementById("dyna").innerHTML ="Welcome To EduHope Foundation"
+            }
+
+            function showImg (){
+                document.getElementById("heroimg").innerHTML = '<img src="images/java.jpg">'
+            }
+        </script>
   </header>
-  <nav style="background-color: #494a4c; display: flex; justify-content: center; gap: 2em; padding: 1em 0;">
+
+    <nav style="background-color: #42464a; display: flex; justify-content: center; gap: 2em; padding: 1em 0;">
     <ul>
-      <li><a style="font-size: large;" href="index.html">Home</a></li>
-      <li><a style="font-size: large;" href="about.html">About</a></li>
-      <li><a style="font-size: large;" href="programmes.html">Programmes</a></li>
-      <li><a style="font-size: large;" href="enquiry.html">Enquiry</a></li>
-      <li><a style="font-size: large;" href="contact.html">Contact</a></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About EduHope Foundation</a></li>
+<li><a href="programmes.html">Our Programmes</a></li>
+<li><a href="enquiry.html">Submit an Enquiry</a></li>
+<li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
+<body style="font-family: 'Segoe UI', sans-serif;">
+  <br/>
+          <p id="dyna">Click here to register</p>
+        <div id="heroimg"></div>
+        <button onclick="ChangeContentNow()">Click here</button>
+        <button onclick="showImg()">Show Image</button>
+        <br/>
+<h2 style="color: #343a40;">Contact Us</h2>
+  <h2 style="text-align: center;color: #343a40;">Send Us an Enquiry</h2>
+  
+    <form id="contactForm" style="max-width: 500px; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);position: -ms-page;">
+      <label for="name">Full Name:</label><br>
+      <input type="text" id="name" name="name" required minlength="3" style="width: 100%; padding: 8px;"><br><br>
 
-  <main style="padding: 2em; text-align: center;">
-    <form>
-      <label style="font-size: x-large;color: rgb(241, 175, 95);" for="name">Name:</label><br />
-      <input style="font-size: x-large;color: rgb(241, 175, 95);" type="text" id="name" name="name" required /><br /><br />
-      <label style="font-size: x-large;color: rgb(241, 175, 95);" for="email">Email:</label><br />
-      <input style="font-size: x-large;" type="email" id="email" name="email" required /><br /><br />
-      <label style="font-size: x-large;color: rgb(241, 175, 95);" for="message">Your Message:</label><br />
-      <textarea id="message" name="message" rows="5" required></textarea><br /><br />
-      <input type="submit" value="Submit" />
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;"><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" required minlength="10" rows="4" style="width: 100%; padding: 8px;"></textarea><br><br>
+
+      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px;">Send</button>
     </form>
-  </main>
-</div>
+    
+
+
+  <p id="formMessage" style="text-align: center; color: green; display: none; margin-top: 1em;"></p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+  const messageBox = document.getElementById("formMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop default submit action
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    if (
+      name.value.trim().length >= 3 &&
+      email.validity.valid &&
+      message.value.trim().length >= 10
+    ) {
+      messageBox.style.color = "green";
+      messageBox.textContent = "✅ Thank you! Your message has been sent.";
+      messageBox.style.display = "block";
+      form.reset();
+    } else {
+      messageBox.style.color = "red";
+      messageBox.textContent = "⚠️ Please complete all fields correctly.";
+      messageBox.style.display = "block";
+    }
+  });
+});
+</script>
+</body>
   <footer style="background-color: #343a40; color: white; text-align: center; padding: 1em;">
     <p>&copy; 2025 EduHope Foundation | All Rights Reserved</p>
   </footer>
-</body>
 </html>

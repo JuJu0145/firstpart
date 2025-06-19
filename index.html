@@ -9,10 +9,68 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body style="font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f8f9fa;">
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll("main, section img, main img");
+  const options = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+      }
+    });
+  }, options);
+
+  elements.forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const target = document.getElementById("typewriter");
+  const text = "Welcome to EduHope Foundation";
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      target.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+
+  if (target) typeEffect();
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll("nav a");
+  const currentURL = window.location.href;
+
+  navLinks.forEach(link => {
+    if (link.href === currentURL) {
+      link.style.fontWeight = "bold";
+      link.style.color = "#ffcc00"; // Yellow highlight
+    }
+  });
+});
+</script>
   <header style="background-color: #9ba1a6; padding: 1em; color: rgb(246, 240, 240); text-align: center;">
     <img src="images/logo.png" alt="EduHope Logo" style="height: 60px;"><br />
     <h1>EduHope Foundation</h1>
     <p>Empowering Tomorrow, One Child at a Time</p>
+    <meta name="description" content="EduHope Foundation is a non-profit in South Africa dedicated to providing quality education to underprivileged children through tutoring, mentorship, and resources.">
+<meta name="keywords" content="EduHope, Education, Non-Profit, South Africa, Tutoring, Mentorship, School, Children, Foundation">
+<meta name="author" content="EduHope Foundation">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="EduHope Foundation - Empowering Tomorrow, One Child at a Time">
+<meta property="og:description" content="Join EduHope Foundation in creating educational opportunities for every child in South Africa.">
+<meta property="og:image" content="images/logo.png">
+<meta property="og:type" content="website">
   </header>
   <nav style="background-color: #494a4c; display: flex; justify-content: center; gap: 2em; padding: 1em 0;">
     <ul>
@@ -24,13 +82,14 @@
     </ul>
   </nav>
   <section style="background-image: url('images/hero.jpg'); background-size: cover; background-position: center; color: rgb(28, 12, 12); padding: 4em 2em; text-align: center;">
-    <h2>Welcome to EduHope Foundation</h2>
+    <h2 id="typewriter"></h2>
     <p>Join us in making quality education accessible for all</p>
   </section>
   <main style="padding: 2em; text-align: center;">
-    <h2>Our Mission</h2>
+   <h2>Our Mission: Improving Education for Underprivileged Children</h2>
     <p>EduHope Foundation is a non-profit organisation committed to providing access to quality education for underprivileged children in South Africa.</p>
-    <h2>What We Do</h2>
+   <h2>What We Do to Support Education and Empowerment</h2>
+
     <ul style="list-style-type: none; padding: 0;">
       <li style="color: bisque;">After-school tutoring</li>
       <li style="color: bisque;">Mentorship programmes</li>

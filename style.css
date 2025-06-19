@@ -71,3 +71,25 @@ p{
 h3{
     color: bisque;
 }
+
+
+
+main, section img, main img {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+
+body {
+  background-color: #686464;
+}
+
+form {
+  background-color: #6b646414;
+  position: inherit;
+}
